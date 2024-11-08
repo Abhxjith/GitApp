@@ -358,11 +358,23 @@ Widget build(BuildContext context) {
                                   style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                                   overflow: TextOverflow.ellipsis,
                                 ),
-                                Text(
-                                  'Public: ${repo['public'].toString()}',
-                                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                                Container(
+  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+  decoration: BoxDecoration(
+    color: repo['public'] ? Colors.green[100] : Colors.red[100],
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Text(
+    repo['public'] ? 'Public' : 'Private',
+    style: TextStyle(
+      fontSize: 12,
+      color: repo['public'] ? Colors.green[800] : Colors.red[800],
+      fontWeight: FontWeight.bold,
+    ),
+    overflow: TextOverflow.ellipsis,
+  ),
+),
+
                               ],
                             ),
                           ),
